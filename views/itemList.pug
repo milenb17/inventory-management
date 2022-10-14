@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  table(class="table table-striped")
+    thead
+        tr
+            th Item
+            th Category
+            
+      
+    each item in items
+      tr
+        td
+          a(href=item.url) #{item.title}
+        td 
+          a(href=item.category.url) #{item.category.title}
+        
+           
+    else
+      li There are no items.

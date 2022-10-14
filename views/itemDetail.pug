@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  img(src=`data:image/${item.img.contentType};base64,${item.img.data.toString('base64')}` alt=`${item.description}`)
+  p #[strong Description:] #{item.description}
+  p #[strong Price:] $#{item.price}
+  p #[strong Number Available:] #{item.quantity}
+  p #[strong Category:]
+    a(href=item.category.url) #{item.category.title}
+
+  
+  hr
+  p
+    a(href=item.url+'/delete') Delete Item
+  p
+    a(href=item.url+'/update') Update Item    

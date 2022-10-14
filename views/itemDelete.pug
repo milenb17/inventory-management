@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  h1 #{title} 
+  p #[strong Title: ] #{item.title}
+  p #[strong Category: ] #{item.category.title} 
+  img(src=`data:image/${item.img.contentType};base64,${item.img.data.toString('base64')}` alt=`${item.description}`)
+  p Do you really want to delete this item?
+
+  form(method='POST' action='')
+    div.form-group
+      input#itemId.form-control(type='hidden',name='itemId', required='true', value=item._id )
+
+    button.btn.btn-primary(type='submit') Delete

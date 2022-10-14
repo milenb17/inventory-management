@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+
+  table(class="table table-striped")
+    thead
+        tr
+            th Category
+            
+    each category in categories
+      tr
+        td
+          a(href=category.url) #{category.title}
+           
+    else
+      li There are no categories.
